@@ -44,3 +44,18 @@ const shortCodeReverseIntegers = (digits: number) => Number(digits.toString().sp
 
 // console.log(reverseIntegers(12345));             // Output: 54321
 // console.log(shortCodeReverseIntegers(123));      // Output: 321
+
+/* ------------------------- sentence capitalization ------------------------ */
+
+const sentenceCapitalization = (sentence: string) => {
+  let result = sentence.charAt(0).toUpperCase();
+  for (let i = 1; i < sentence.length; i++) {
+    result += sentence[i];
+  }
+  return result;
+};
+
+const shortCodeSentenceCapitalization = (sentence: string): string => sentence.charAt(0).toUpperCase() + sentence.slice(1);
+
+// console.log(sentenceCapitalization("hello, how are you"));           // Output: Hello, how are you
+// console.log(shortCodeSentenceCapitalization("hello, how are you"));  // Output: Hello, how are you

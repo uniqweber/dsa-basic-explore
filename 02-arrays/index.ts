@@ -38,16 +38,17 @@ class MyArr {
     return this.length;
   }
 
-  deleteByIndex(index: number) {
+  deleteByIndex(index: number): string {
     const item = this.data[index];
     delete this.data[index];
 
-    for (let i = index; i < this.length; i++) {
+    for (let i = index; i < this.length ; i++) {
       this.data[i] = this.data[i + 1];
     }
 
     this.length--;
-    delete this.data[this.length]
+    delete this.data[this.length];
+    return item;
   }
 }
 
@@ -55,11 +56,12 @@ const newArr = new MyArr();
 newArr.push("apple");
 newArr.push("banana");
 newArr.push("dragon");
+newArr.push("kola");
 newArr.push("pineapple");
 newArr.push("malta");
 // newArr.get(2)
 // newArr.shift();
 // newArr.pop()
 // newArr.size
-newArr.deleteByIndex(0);
+newArr.deleteByIndex(4);
 console.log(newArr.data);

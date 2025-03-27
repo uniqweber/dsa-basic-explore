@@ -1,9 +1,10 @@
-Challenges
+## Challenges
+
 - reverse String
 - palindromes
-- integer reversal 
-- sentence capitalization 
+- integer reversal
+- sentence capitalization
 - fizzbuzz
 - maxProfit
-- Array Chunk 
+- Array Chunk
 - Two sum

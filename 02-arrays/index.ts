@@ -37,12 +37,29 @@ class MyArr {
   get size(): number {
     return this.length;
   }
+
+  deleteByIndex(index: number) {
+    const item = this.data[index];
+    delete this.data[index];
+
+    for (let i = index; i < this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+
+    this.length--;
+    delete this.data[this.length]
+  }
 }
 
 const newArr = new MyArr();
 newArr.push("apple");
 newArr.push("banana");
+newArr.push("dragon");
+newArr.push("pineapple");
 newArr.push("malta");
-newArr.push("guava");
-newArr.shift();
-console.log(newArr);
+// newArr.get(2)
+// newArr.shift();
+// newArr.pop()
+// newArr.size
+newArr.deleteByIndex(0);
+console.log(newArr.data);

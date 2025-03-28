@@ -59,3 +59,32 @@ const shortCodeSentenceCapitalization = (sentence: string): string => sentence.c
 
 // console.log(sentenceCapitalization("hello, how are you"));           // Output: Hello, how are you
 // console.log(shortCodeSentenceCapitalization("hello, how are you"));  // Output: Hello, how are you
+
+/* -------------------------------- sentence word capitalization -------------------------------- */
+
+const sentenceWordCapitalization = (sentence: string): string => {
+  let result: string = "";
+  let wordStart: boolean = true;
+  for (let i = 0; i < sentence.length; i++) {
+    let char = sentence[i];
+
+    if (wordStart && /[a-zA-Z]/.test(char)) {
+      result += char.toUpperCase();
+      wordStart = false;
+    } else result += char;
+
+    if (char === " ") wordStart = true;
+  }
+  return result;
+};
+
+const shortCodeSentenceWordCapitalization = (sentence: string) => {
+  return sentence
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
+// console.log(sentenceWordCapitalization("hello, how are you"));           // Output: Hello, How Are You
+// console.log(shortCodeSentenceWordCapitalization("hello, how are you"));  // Output: Hello, How Are You
+

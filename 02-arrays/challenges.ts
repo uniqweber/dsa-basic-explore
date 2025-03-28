@@ -65,16 +65,17 @@ const shortCodeSentenceCapitalization = (sentence: string): string => sentence.c
 const sentenceWordCapitalization = (sentence: string): string => {
   let result: string = "";
   let wordStart: boolean = true;
+
   for (let i = 0; i < sentence.length; i++) {
-    let char = sentence[i];
-
-    if (wordStart && /[a-zA-Z]/.test(char)) {
-      result += char.toUpperCase();
+    let character = sentence[i];
+    if (wordStart && /[a-zA-Z]/.test(character)) {
+      result += character.toUpperCase();
       wordStart = false;
-    } else result += char;
+    } else result += character;
 
-    if (char === " ") wordStart = true;
+    if (character === " ") wordStart = true;
   }
+
   return result;
 };
 
@@ -88,3 +89,24 @@ const shortCodeSentenceWordCapitalization = (sentence: string) => {
 // console.log(sentenceWordCapitalization("hello, how are you"));           // Output: Hello, How Are You
 // console.log(shortCodeSentenceWordCapitalization("hello, how are you"));  // Output: Hello, How Are You
 
+/* ---------------------------------- fizzbuzz ---------------------------------- */
+
+const fizzbuzz = (nth: number) => {
+  let result: (string | number)[] = [];
+  for (let i = 1; i <= nth; i++) {
+    if (i % 3 === 0 && i % 5 === 0) result.push("Fizzbuzz");
+    else if (i % 3 === 0) result.push("fizz");
+    else if (i % 5 === 0) result.push("buzz");
+    else result.push(i);
+  }
+  return result;
+};
+
+const shortCodeFizzBuzz = (nth: number) =>
+  Array.from({length: nth}, (_, i) => {
+    let num = ++i;
+    return num % 3 === 0 && num % 5 == 0 ? "fizzbuzz" : num % 3 === 0 ? "fizz" : num % 5 === 0 ? "buzz" : num;
+  });
+
+// console.log(fizzbuzz(50));                   // Output: 1,2 fizz,4,buzz
+// console.log(shortCodeFizzBuzz(50));          // Output: 1,2 fizz,4,buzz,

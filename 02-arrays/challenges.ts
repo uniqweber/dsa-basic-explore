@@ -110,3 +110,20 @@ const shortCodeFizzBuzz = (nth: number) =>
 
 // console.log(fizzbuzz(50));                   // Output: 1,2 fizz,4,buzz
 // console.log(shortCodeFizzBuzz(50));          // Output: 1,2 fizz,4,buzz,
+
+/* ------------------------------- max profit ------------------------------- */
+
+const maxProfit = (arr: number[]) => {
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (max < arr[i]) max = arr[i];
+  }
+  return max;
+};
+
+const shortCodeMaxProfit = (arr: number[]) => Math.max(...arr);
+
+// console.log(maxProfit([234, 324, 43, 34, 234, 500]));                // Output: 500
+// console.log(shortCodeMaxProfit([234, 324, 43, 34, 234, 500]));       // Output: 500
+
+/* ------------------------------- array chunk ------------------------------ */

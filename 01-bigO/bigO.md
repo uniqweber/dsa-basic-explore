@@ -69,3 +69,45 @@ const findDuplicates = (list: string[]) => {
   }
 };
 ```
+
+## O(log n) - Logarithmic Time Complexity
+
+⏳ Increasing items = Slower increase in time
+
+In O(log n), the time it takes to process increases slowly as the number of items grows. This happens when an algorithm divides the input in half each time, reducing the problem size with every step.
+
+Example:
+
+> Imagine you're trying to find a number in a sorted list of numbers. Instead of checking each number one by one, you start in the middle, and then decide whether to look at the left or right half, depending on whether the number you're looking for is smaller or larger. This way, with each step, you cut the search space in half.
+
+As you keep dividing the list, you're reducing the problem size exponentially, so the time grows very slowly compared to O(n) or O(n²).
+
+Code Example: 
+```typescript
+const binarySearch = (arr: number[], target: number) => {
+  let low = 0;
+  let high = arr.length - 1;
+
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    
+    if (arr[mid] === target) {
+      console.log(`Found target ${target} at index ${mid}`);
+      return mid;
+    }
+
+    if (arr[mid] < target) {
+      low = mid + 1;  // Discard left half
+    } else {
+      high = mid - 1; // Discard right half
+    }
+  }
+
+  console.log(`${target} not found`);
+  return -1;
+};
+
+const arr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+binarySearch(arr, 7);  // Found target 7 at index 3
+
+```

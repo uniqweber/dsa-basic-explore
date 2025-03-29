@@ -35,3 +35,29 @@ const findPairs = (arr: number[]): void => {
 };
 
 // findPairs(numbers);
+
+/* ------------------------------------ O(log n) ----------------------------------- */
+const binarySearch = (arr: number[], target: number) => {
+  let low = 0;
+  let high = arr.length - 1;
+
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+
+    if (arr[mid] === target) {
+      console.log(`Found target ${target} at index ${mid}`);
+      return mid;
+    }
+
+    if (arr[mid] < target) {
+      low = mid + 1; // Discard left half
+    } else {
+      high = mid - 1; // Discard right half
+    }
+  }
+
+  console.log(`${target} not found`);
+  return -1;
+};
+
+// binarySearch(numbers, 3);

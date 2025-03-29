@@ -152,3 +152,14 @@ const shortCodeArrayChunk = (arr: number[], size: number) => {
 // console.log(shortCodeArrayChunk([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));          // Output: [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
 
 /* --------------------------------- Two Sum -------------------------------- */
+
+const twoSum = (arr: number[], target: number) => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) return [i, j];
+    }
+  }
+  return [];
+};
+
+// console.log(twoSum([1, 1, 3, 4, 5, 6, 7], 13));                          // Output: [5,6] index = 13

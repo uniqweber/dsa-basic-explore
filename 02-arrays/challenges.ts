@@ -127,3 +127,28 @@ const shortCodeMaxProfit = (arr: number[]) => Math.max(...arr);
 // console.log(shortCodeMaxProfit([234, 324, 43, 34, 234, 500]));       // Output: 500
 
 /* ------------------------------- array chunk ------------------------------ */
+
+const arrayChunk = (arr: number[], size: number): number[][] => {
+  let result: number[][] = [];
+  let subArr: number[] = [];
+  for (let i = 0; i < arr.length; i++) {
+    subArr.push(arr[i]);
+    if (subArr.length === size) {
+      result.push(subArr);
+      subArr = [];
+    }
+  }
+  if (subArr.length) result.push(subArr);
+  return result;
+};
+
+const shortCodeArrayChunk = (arr: number[], size: number) => {
+  let result: number[][] = [];
+  for (let i = 0; i < arr.length; i += size) result.push(arr.slice(i, i + size));
+  return result;
+};
+
+// console.log(arrayChunk([1, 2, 3, 4, 5, 6, 7, 8, 9,10], 3));                // Output: [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
+// console.log(shortCodeArrayChunk([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));          // Output: [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
+
+/* --------------------------------- Two Sum -------------------------------- */
